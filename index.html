@@ -3,136 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BlueSky Travels – Premium Travel Experiences</title>
+<title>BlueSky Travels | Corporate Travel Management</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#f4f8ff;color:#222}
+:root{
+  --primary:#0a2e6e;
+  --secondary:#123d8c;
+  --light:#f6f9ff;
+  --dark:#1c1c1c;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+body{background:var(--light);color:var(--dark);}
 
 /* HEADER */
 header{
-  background:#003b8f;
-  padding:18px 50px;
+  background:#fff;
+  padding:20px 70px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   position:fixed;
   width:100%;
   top:0;
-  z-index:999;
+  z-index:1000;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
 }
-header h1{color:#fff;font-weight:200}
+header h1{
+  color:var(--primary);
+  font-weight:700;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo img{
+  width:42px;
+  height:42px;
+}
+.logo span{
+  font-size:20px;
+  font-weight:700;
+  color:var(--primary);
+  letter-spacing:.4px;
+}
 nav a{
-  color:#fff;
-  margin-left:25px;
+  color:#333;
+  margin-left:30px;
   text-decoration:none;
   font-weight:500;
 }
 
-/* SCROLLING IMAGE SECTION */
-.scroll-gallery{
-  margin-top:85px;
-  overflow-x:auto;
-  white-space:nowrap;
-  scroll-behavior:smooth;
+/* ===== SLIDESHOW ===== */
+.slideshow{
+  margin-top:90px;
+  overflow:hidden;
 }
-.scroll-gallery::-webkit-scrollbar{display:none}
-.scroll-gallery img{
-  width:90vw;
-  height:80vh;
+.slide-track{
+  display:flex;
+  width:300%;
+  animation:scroll 30s linear infinite;
+}
+.slide{
+  width:100vw;
+  height:75vh;
+  flex-shrink:0;
+}
+.slide img{
+  width:100%;
+  height:100%;
   object-fit:cover;
-  display:inline-block;
-  border-radius:20px;
-  margin:20px;
 }
 
-/* INTRO SECTION */
+/* smooth auto move */
+@keyframes scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-200vw)}
+}
+
+/* INTRO */
 .intro{
-  padding:80px 12%;
-  background:#ffffff;
+  background:#fff;
+  padding:100px 18%;
 }
 .intro h2{
-  font-size:38px;
-  color:#003b8f;
-  margin-bottom:20px;
+  font-size:42px;
+  color:var(--primary);
+  margin-bottom:25px;
 }
 .intro p{
   font-size:18px;
-  line-height:1.8;
-  color:#444;
+  line-height:1.9;
+  color:#555;
+  max-width:900px;
 }
-.intro .highlight{
-  margin-top:30px;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:25px;
-}
-.card{
-  background:#f2f6ff;
-  padding:25px;
-  border-radius:15px;
-  box-shadow:0 10px 20px rgba(0,0,0,0.08);
-}
-.card h3{color:#003b8f;margin-bottom:10px}
 
-/* CALL SECTION */
-.call{
-  background:linear-gradient(135deg,#003b8f,#0057d8);
-  color:#fff;
-  padding:60px;
-  text-align:center;
+/* TRUST */
+.trust{
+  padding:90px 15%;
+  background:var(--light);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:40px;
 }
-.call h2{font-size:32px;margin-bottom:10px}
-.call a{
+.trust-box{
+  background:#fff;
+  padding:40px;
+  border-radius:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+.trust-box h3{color:var(--primary);margin-bottom:15px}
+
+/* CONTACT */
+.contact{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  padding:80px;
+  text-align:center;
   color:#fff;
-  font-size:28px;
+}
+.contact h2{font-size:34px;margin-bottom:15px}
+.contact a{
+  color:#fff;
+  font-size:26px;
   font-weight:600;
   text-decoration:none;
 }
 
-/* MAP */
-.map{
-  padding:70px 12%;
+/* GOOGLE REVIEWS */
+.reviews{
+  padding:90px 15%;
   background:#fff;
 }
-.map h2{text-align:center;margin-bottom:30px;color:#003b8f}
+.reviews h2{
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:35px;
+}
+.reviews iframe{
+  width:100%;
+  height:420px;
+  border:none;
+  border-radius:22px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* MAP */
+.map{
+  padding:90px 15%;
+  background:var(--light);
+}
+.map h2{
+  text-align:center;
+  color:var(--primary);
+  margin-bottom:30px;
+}
 .map iframe{
   width:100%;
   height:420px;
   border:none;
-  border-radius:18px;
-}
-
-/* REVIEWS */
-.reviews{
-  padding:70px 12%;
-  background:#eef4ff;
-}
-.reviews h2{text-align:center;color:#003b8f;margin-bottom:30px}
-.review-box{
-  max-width:900px;
-  margin:auto;
-  background:#fff;
-  padding:35px;
   border-radius:20px;
-  box-shadow:0 15px 30px rgba(0,0,0,0.1);
 }
 
 /* FOOTER */
 footer{
-  background:#002b66;
+  background:#081f4a;
   color:#fff;
-  padding:30px;
+  padding:40px;
   text-align:center;
 }
-footer p{margin:6px 0}
+footer p{margin:6px 0;font-size:14px}
 
-/* MOBILE */
+/* MOBILE RULES */
 @media(max-width:768px){
-  .scroll-gallery img{height:55vh}
-  header{flex-direction:column}
+  nav{display:none;}          /* ✅ REMOVE NAV ON MOBILE */
+  header{padding:16px 25px;justify-content:center;}
+  .image-strip img{height:50vh}
+  .intro{padding:70px 10%}
 }
 </style>
 </head>
@@ -140,69 +188,88 @@ footer p{margin:6px 0}
 <body>
 
 <header>
-  <h1>SV LATHA TRAVELS</h1>
+  <div class="header-inner">
+    <div class="logo">
+      <!-- Replace with your logo -->
+      <img src="https://cdn-icons-png.flaticon.com/512/201/201623.png">
+      <span>BlueSky Travels</span>
+    </div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
 
-<!-- SCROLLING IMAGES -->
-<section class="scroll-gallery">
-  <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
-  <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
-  <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+<!-- AUTO SLIDESHOW -->
+<section class="slideshow">
+  <div class="slide-track">
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee">
+    </div>
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1493558103817-58b2924bce98">
+    </div>
+  </div>
 </section>
 
 <!-- INTRO -->
 <section class="intro" id="about">
-  <h2>Your Trusted Travel Partner</h2>
+  <h2>Corporate Travel, Managed with Precision</h2>
   <p>
-    BlueSky Travels is a premium travel management company dedicated to creating unforgettable journeys.
-    From luxury international tours to carefully planned domestic packages, we ensure comfort, safety,
-    and seamless experiences for every traveler.
+    BlueSky Travels delivers enterprise-grade corporate travel solutions with a strong
+    focus on compliance, efficiency, and executive comfort. Our structured approach
+    supports organizations, leadership teams, and business travelers worldwide.
   </p>
+</section>
 
-  <div class="highlight">
-    <div class="card">
-      <h3>✈️ Customized Tours</h3>
-      <p>Tailor-made packages designed to match your budget and travel dreams.</p>
-    </div>
-    <div class="card">
-      <h3>🌍 Global Destinations</h3>
-      <p>Domestic and international travel with trusted global partners.</p>
-    </div>
-    <div class="card">
-      <h3>🤝 Trusted Service</h3>
-      <p>Professional planning, transparent pricing, and 24/7 support.</p>
-    </div>
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust-box">
+    <h3>Policy-Compliant Planning</h3>
+    <p>End-to-end travel planning aligned with corporate policies and budgets.</p>
+  </div>
+  <div class="trust-box">
+    <h3>Global Partner Network</h3>
+    <p>Strategic airline, hotel, and logistics partnerships across continents.</p>
+  </div>
+  <div class="trust-box">
+    <h3>Dedicated Account Managers</h3>
+    <p>Single-point professional support for all corporate travel requirements.</p>
   </div>
 </section>
 
-<!-- CALL -->
-<section class="call" id="contact">
-  <h2>Speak With Our Travel Expert</h2>
-  <a href="tel:+919876543210">📞 +91 98765 43210</a>
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <h2>Speak With a Corporate Travel Consultant</h2>
+  <a href="tel:+919876543210">+91 98765 43210</a>
+</section>
+
+<!-- GOOGLE REVIEWS -->
+<section class="reviews" id="reviews">
+  <h2>Google Reviews</h2>
+
+  <!-- 🔁 Replace PLACE_ID with your Google Business Place ID -->
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m2!1s0x0:0xPLACE_ID!2m2!1sen!2sin">
+  </iframe>
 </section>
 
 <!-- MAP -->
 <section class="map" id="map">
-  <h2>Visit Our Office</h2>
+  <h2>Corporate Office</h2>
   <iframe src="https://www.google.com/maps?q=chennai&output=embed"></iframe>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews">
-  <h2>What Our Clients Say</h2>
-  <div class="review-box">
-    ⭐⭐⭐⭐⭐ <br><br>
-    “Exceptional service! From booking to return, everything was smooth and stress-free.”
-    <br><br>
-    — Verified Customer
-  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <p>© 2026 BlueSky Travels</p>
-  <p>Luxury • Comfort • Reliability</p>
+  <p>Corporate Travel Management • Executive Services • Global Coverage</p>
 </footer>
 
 </body>
-  </html>
+</html>
